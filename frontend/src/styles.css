@@ -1,0 +1,3838 @@
+/* =========================================================
+   AI LEARN & VISUALIZE
+   FUTURISTIC UI
+   ========================================================= */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px;
+}
+
+body {
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+
+  background:
+    radial-gradient(circle at 15% 20%, rgba(91, 76, 255, 0.35), transparent 30%),
+    radial-gradient(circle at 85% 70%, rgba(168, 85, 247, 0.3), transparent 30%),
+    linear-gradient(135deg, #07102d, #111b4b 45%, #28105c);
+
+  color: #eef2ff;
+  min-height: 100vh;
+}
+
+/* =========================================================
+   APP
+   ========================================================= */
+
+.app {
+  min-height: 100vh;
+  position: relative;
+}
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.header {
+  position: fixed;
+  
+  z-index: 10;
+
+  width: 100%;
+
+  background: rgba(8, 15, 45, 0.78);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+
+  box-shadow:
+    0 10px 40px rgba(0, 0, 0, 0.25);
+}
+
+.header-content {
+  max-width: 1250px;
+  margin: auto;
+
+  min-height: 78px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 28px;
+}
+
+/* =========================================================
+   LOGO
+   ========================================================= */
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo-icon {
+  width: 44px;
+  height: 44px;
+
+  display: grid;
+  place-items: center;
+
+  font-size: 25px;
+
+  border-radius: 14px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #6366f1,
+      #a855f7
+    );
+
+  box-shadow:
+    0 0 20px rgba(99, 102, 241, 0.65);
+
+  animation: pulseGlow 3s infinite;
+}
+
+.logo h1 {
+  font-size: 21px;
+  font-weight: 750;
+  letter-spacing: -0.5px;
+
+  background: linear-gradient(
+    90deg,
+    #ffffff,
+    #b9c4ff,
+    #d8b4fe
+  );
+
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* =========================================================
+   NAVIGATION
+   ========================================================= */
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.nav-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 12px 18px;
+
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 14px;
+
+    transition: all 0.25s ease;
+}
+
+.nav-link:hover {
+  color: white;
+
+  background: rgba(168, 85, 247, 0.25);
+
+  border-color: rgba(129, 140, 248, 0.35);
+
+  box-shadow:
+    0 0 18px rgba(168, 85, 247, 0.35);
+
+  transform: translateY(-2px);
+}
+
+/* =========================================================
+   MAIN
+   ========================================================= */
+
+.main-content {
+  width: 100%;
+  max-width: 1250px;
+
+  margin: auto;
+
+  padding: 55px 24px 80px;
+}
+
+/* =========================================================
+   PROMPT SECTION
+   ========================================================= */
+
+.prompt-section {
+  position: relative;
+
+  max-width: 950px;
+  margin: 40px auto;
+
+  padding: 55px;
+
+  border-radius: 30px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.12),
+      rgba(255, 255, 255, 0.045)
+    );
+
+  border: 1px solid rgba(255, 255, 255, 0.14);
+
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+
+  box-shadow:
+    0 30px 90px rgba(0, 0, 0, 0.35),
+    inset 0 1px rgba(255, 255, 255, 0.1);
+
+  overflow: hidden;
+}
+
+.prompt-section::before {
+  content: "";
+
+  position: absolute;
+
+  width: 350px;
+  height: 350px;
+
+  right: -180px;
+  top: -180px;
+
+  border-radius: 50%;
+
+  background: rgba(99, 102, 241, 0.28);
+
+  filter: blur(80px);
+
+  pointer-events: none;
+}
+
+/* =========================================================
+   PROMPT HEADER
+   ========================================================= */
+
+.prompt-header {
+  text-align: center;
+  margin-bottom: 35px;
+}
+
+.prompt-header h2 {
+  font-size: clamp(30px, 5vw, 48px);
+
+  line-height: 1.1;
+
+  margin-bottom: 15px;
+
+  font-weight: 800;
+
+  background:
+    linear-gradient(
+      90deg,
+      #ffffff,
+      #a5b4fc,
+      #d8b4fe
+    );
+
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.prompt-header p {
+  color: #aeb9df;
+
+  font-size: 17px;
+}
+
+/* =========================================================
+   FORM
+   ========================================================= */
+
+.prompt-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.prompt-textarea {
+  width: 100%;
+
+  min-height: 150px;
+
+  padding: 20px;
+
+  resize: vertical;
+
+  border-radius: 18px;
+
+  border: 1px solid rgba(148, 163, 184, 0.25);
+
+  outline: none;
+
+  background: rgba(5, 12, 38, 0.65);
+
+  color: white;
+
+  font-size: 16px;
+  line-height: 1.6;
+
+  transition:
+    border 0.25s ease,
+    box-shadow 0.25s ease,
+    background 0.25s ease;
+}
+
+.prompt-textarea::placeholder {
+  color: #7783aa;
+}
+
+.prompt-textarea:focus {
+  border-color: #818cf8;
+
+  background: rgba(5, 12, 38, 0.85);
+
+  box-shadow:
+    0 0 0 4px rgba(99, 102, 241, 0.12),
+    0 0 30px rgba(99, 102, 241, 0.15);
+}
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+
+.btn-primary {
+  border: none;
+
+  padding: 13px 24px;
+
+  border-radius: 13px;
+
+  color: white;
+
+  font-size: 15px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  background:
+    linear-gradient(
+      135deg,
+      #6366f1,
+      #8b5cf6,
+      #a855f7
+    );
+
+  box-shadow:
+    0 10px 30px rgba(99, 102, 241, 0.3);
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    filter 0.25s ease;
+}
+
+.btn-primary:hover:not(:disabled) {
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 15px 40px rgba(139, 92, 246, 0.45);
+
+  filter: brightness(1.1);
+}
+
+.btn-primary:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.btn-primary:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.btn-large {
+  min-height: 58px;
+
+  font-size: 17px;
+
+  border-radius: 16px;
+}
+
+.btn-secondary {
+  border: 1px solid rgba(129, 140, 248, 0.35);
+
+  padding: 12px 20px;
+
+  border-radius: 12px;
+
+  background: rgba(99, 102, 241, 0.12);
+
+  color: #c7d2fe;
+
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition: all 0.25s ease;
+}
+
+.btn-secondary:hover {
+  background: rgba(99, 102, 241, 0.22);
+
+  color: white;
+
+  transform: translateY(-2px);
+}
+
+/* =========================================================
+   EXAMPLE PROMPTS
+   ========================================================= */
+
+.example-prompts {
+  margin-top: 30px;
+}
+
+.example-label {
+  color: #aeb9df;
+
+  font-size: 14px;
+
+  margin-bottom: 14px;
+
+  font-weight: 650;
+}
+
+.example-grid {
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 10px;
+}
+
+.example-chip {
+  text-align: left;
+
+  padding: 14px 16px;
+
+  border-radius: 13px;
+
+  border: 1px solid rgba(148, 163, 184, 0.16);
+
+  background: rgba(255, 255, 255, 0.045);
+
+  color: #cbd5ff;
+
+  cursor: pointer;
+
+  transition: all 0.25s ease;
+}
+
+.example-chip:hover {
+  background: rgba(99, 102, 241, 0.15);
+
+  border-color: rgba(129, 140, 248, 0.4);
+
+  color: white;
+
+  transform: translateY(-2px);
+}
+
+/* =========================================================
+   RESULT SECTION
+   ========================================================= */
+
+.result-section {
+    position: relative;
+    padding-top: 40px;
+}
+
+.result-header {
+  display: flex;
+  justify-content: flex-start;
+
+  margin-bottom: 25px;
+}
+
+/* =========================================================
+   USER PROMPT
+   ========================================================= */
+
+.user-prompt-display {
+  padding: 22px 26px;
+
+  margin-bottom: 25px;
+
+  border-radius: 18px;
+
+  background: rgba(255, 255, 255, 0.07);
+
+  border: 1px solid rgba(255, 255, 255, 0.1);
+
+  backdrop-filter: blur(15px);
+}
+
+.user-prompt-display h4 {
+  color: #a5b4fc;
+
+  margin-bottom: 8px;
+
+  font-size: 13px;
+
+  text-transform: uppercase;
+
+  letter-spacing: 1px;
+}
+
+.user-prompt-display p {
+  color: #e2e8ff;
+
+  line-height: 1.6;
+}
+
+/* =========================================================
+   CONTENT CARD
+   ========================================================= */
+
+.content-card {
+  padding: 45px;
+
+  border-radius: 28px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.12),
+      rgba(255, 255, 255, 0.055)
+    );
+
+  border: 1px solid rgba(255, 255, 255, 0.13);
+
+  backdrop-filter: blur(20px);
+
+  box-shadow:
+    0 30px 80px rgba(0, 0, 0, 0.28);
+}
+
+/* =========================================================
+   RESULT TITLE
+   ========================================================= */
+
+.result-title {
+  font-size: clamp(30px, 5vw, 52px);
+
+  line-height: 1.1;
+
+  margin-bottom: 35px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #ffffff,
+      #a5b4fc,
+      #c084fc
+    );
+
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* =========================================================
+   SUMMARY
+   ========================================================= */
+
+.summary-section {
+  margin-bottom: 35px;
+
+  padding: 25px;
+
+  border-radius: 18px;
+
+  background: rgba(99, 102, 241, 0.08);
+
+  border-left: 4px solid #818cf8;
+}
+
+.summary-section h3 {
+  color: #c7d2fe;
+
+  margin-bottom: 12px;
+}
+
+.summary-section p {
+  color: #cbd5e1;
+
+  line-height: 1.8;
+
+  font-size: 16px;
+}
+
+/* =========================================================
+   DIAGRAM
+   ========================================================= */
+
+.diagram-section {
+  margin: 45px 0;
+
+  scroll-margin-top: 100px;
+}
+
+.diagram-section h3 {
+  color: #c7d2fe;
+
+  margin-bottom: 20px;
+
+  font-size: 23px;
+}
+
+.diagram-container {
+  padding: 25px;
+
+  min-height: 200px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 20px;
+
+  background: rgba(3, 8, 30, 0.65);
+
+  border: 1px solid rgba(129, 140, 248, 0.2);
+
+  overflow-x: auto;
+
+  box-shadow:
+    inset 0 0 40px rgba(99, 102, 241, 0.05);
+}
+
+.mermaid {
+  width: 100%;
+  max-width: 1050px;
+}
+
+/* =========================================================
+   EXPLANATION
+   ========================================================= */
+
+.explanation-section {
+  margin-top: 45px;
+
+  scroll-margin-top: 100px;
+}
+
+.explanation-section h3 {
+  color: #c7d2fe;
+
+  font-size: 25px;
+
+  margin-bottom: 25px;
+}
+
+.explanation-content {
+  display: flex;
+  flex-direction: column;
+
+  gap: 15px;
+}
+
+.explanation-item {
+  display: flex;
+
+  gap: 18px;
+
+  padding: 20px;
+
+  border-radius: 16px;
+
+  background: rgba(255, 255, 255, 0.045);
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  transition: all 0.25s ease;
+}
+
+.explanation-item:hover {
+  transform: translateX(5px);
+
+  background: rgba(99, 102, 241, 0.08);
+
+  border-color: rgba(129, 140, 248, 0.25);
+}
+
+.explanation-number {
+  flex-shrink: 0;
+
+  width: 38px;
+  height: 38px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 50%;
+
+  background:
+    linear-gradient(
+      135deg,
+      #6366f1,
+      #a855f7
+    );
+
+  color: white;
+
+  font-weight: 800;
+
+  box-shadow:
+    0 0 18px rgba(99, 102, 241, 0.3);
+}
+
+.explanation-item p {
+  color: #cbd5e1;
+
+  line-height: 1.75;
+}
+
+/* =========================================================
+   PRACTICE
+   ========================================================= */
+
+.practice-section {
+  margin-top: 45px;
+
+  padding: 35px;
+
+  border-radius: 25px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(99, 102, 241, 0.1),
+      rgba(168, 85, 247, 0.07)
+    );
+
+  border: 1px solid rgba(129, 140, 248, 0.18);
+
+  scroll-margin-top: 100px;
+}
+
+.practice-header h3 {
+  font-size: 28px;
+
+  color: #ddd6fe;
+
+  margin-bottom: 10px;
+}
+
+.practice-header p {
+  color: #9faacc;
+
+  margin-bottom: 25px;
+}
+
+/* =========================================================
+   PROGRESS BAR
+   ========================================================= */
+
+.progress-bar {
+  width: 100%;
+
+  height: 8px;
+
+  background: rgba(255, 255, 255, 0.08);
+
+  border-radius: 20px;
+
+  overflow: hidden;
+
+  margin-bottom: 30px;
+}
+
+.progress-fill {
+  height: 100%;
+
+  border-radius: inherit;
+
+  background:
+    linear-gradient(
+      90deg,
+      #6366f1,
+      #a855f7,
+      #ec4899
+    );
+
+  box-shadow:
+    0 0 15px rgba(168, 85, 247, 0.5);
+
+  transition: width 0.4s ease;
+}
+
+/* =========================================================
+   QUESTION CARD
+   ========================================================= */
+
+.question-card {
+  padding: 28px;
+
+  border-radius: 20px;
+
+  background: rgba(5, 10, 35, 0.6);
+
+  border: 1px solid rgba(255, 255, 255, 0.1);
+
+  box-shadow:
+    0 15px 40px rgba(0, 0, 0, 0.18);
+}
+
+.question-card h3 {
+  color: #e0e7ff;
+
+  margin-bottom: 22px;
+}
+
+.question-option {
+  width: 100%;
+
+  padding: 15px 18px;
+
+  margin-bottom: 10px;
+
+  text-align: left;
+
+  border-radius: 13px;
+
+  border: 1px solid rgba(148, 163, 184, 0.15);
+
+  background: rgba(255, 255, 255, 0.045);
+
+  color: #cbd5e1;
+
+  cursor: pointer;
+
+  transition: all 0.2s ease;
+}
+
+.question-option:hover {
+  border-color: #818cf8;
+
+  background: rgba(99, 102, 241, 0.12);
+
+  color: white;
+}
+
+/* =========================================================
+   SCORE CARD
+   ========================================================= */
+
+.score-card {
+  text-align: center;
+
+  padding: 50px 30px;
+
+  border-radius: 25px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(99, 102, 241, 0.15),
+      rgba(168, 85, 247, 0.12)
+    );
+
+  border: 1px solid rgba(129, 140, 248, 0.2);
+
+  box-shadow:
+    0 25px 70px rgba(0, 0, 0, 0.25);
+}
+
+.score-card h2 {
+  font-size: 36px;
+
+  margin-bottom: 15px;
+
+  color: white;
+}
+
+/* =========================================================
+   ERROR
+   ========================================================= */
+
+.error-message {
+  max-width: 800px;
+
+  margin: 50px auto;
+
+  padding: 30px;
+
+  border-radius: 20px;
+
+  background: rgba(239, 68, 68, 0.1);
+
+  border: 1px solid rgba(248, 113, 113, 0.25);
+
+  color: #fecaca;
+}
+
+.error-message h3 {
+  margin-bottom: 10px;
+}
+
+.error-message p {
+  margin-bottom: 20px;
+
+  line-height: 1.6;
+}
+
+/* =========================================================
+   LOADING
+   ========================================================= */
+
+.loading-state {
+  min-height: 400px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+}
+
+.loading-spinner {
+  width: 55px;
+  height: 55px;
+
+  border-radius: 50%;
+
+  border: 4px solid rgba(255, 255, 255, 0.1);
+
+  border-top-color: #818cf8;
+
+  animation: spin 1s linear infinite;
+
+  margin-bottom: 20px;
+}
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.footer {
+  text-align: center;
+
+  padding: 35px 20px;
+
+  color: #7783aa;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+
+  background: rgba(4, 8, 25, 0.5);
+}
+
+.footer p {
+  font-size: 13px;
+}
+
+/* =========================================================
+   ANIMATIONS
+   ========================================================= */
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulseGlow {
+  0%,
+  100% {
+    box-shadow:
+      0 0 18px rgba(99, 102, 241, 0.45);
+  }
+
+  50% {
+    box-shadow:
+      0 0 35px rgba(168, 85, 247, 0.75);
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 800px) {
+
+  .header-content {
+    flex-direction: column;
+
+    gap: 12px;
+
+    padding: 15px;
+  }
+
+  .nav {
+    width: 100%;
+
+    justify-content: center;
+
+    flex-wrap: wrap;
+  }
+
+  .nav-link {
+    padding: 8px 12px;
+
+    font-size: 14px;
+  }
+
+  .main-content {
+    padding: 30px 14px 60px;
+  }
+
+  .prompt-section {
+    padding: 30px 20px;
+
+    margin: 20px auto;
+  }
+
+  .content-card {
+    padding: 25px 18px;
+  }
+
+  .example-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .explanation-item {
+    flex-direction: column;
+  }
+
+  .practice-section {
+    padding: 25px 15px;
+  }
+}
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+  .logo h1 {
+    font-size: 17px;
+  }
+
+  .logo-icon {
+    width: 38px;
+    height: 38px;
+    font-size: 21px;
+  }
+
+  .prompt-header h2 {
+    font-size: 30px;
+  }
+
+  .prompt-header p {
+    font-size: 14px;
+  }
+
+  .result-title {
+    font-size: 32px;
+  }
+
+  .nav {
+    gap: 2px;
+  }
+
+  .nav-link {
+    padding: 7px 9px;
+    font-size: 13px;
+  }
+}
+
+/* ================================
+   FUTURISTIC PRACTICE QUIZ FIX
+   ================================ */
+
+.practice-section {
+  width: 100%;
+  max-width: 1100px;
+  margin: 60px auto;
+  padding: 35px;
+  box-sizing: border-box;
+}
+
+.practice-header {
+  margin-bottom: 25px;
+}
+
+.practice-header h3 {
+  font-size: 32px;
+  margin-bottom: 8px;
+}
+
+.practice-header p {
+  font-size: 17px;
+  opacity: 0.8;
+}
+
+/* Progress bar */
+.progress-bar {
+  width: 100%;
+  height: 10px;
+  border-radius: 20px;
+  overflow: hidden;
+  margin: 25px 0;
+}
+
+.progress-fill {
+  height: 100%;
+  border-radius: 20px;
+  transition: width 0.4s ease;
+}
+
+/* Question card */
+.question-card {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 30px;
+  margin-top: 25px;
+  border-radius: 20px;
+}
+
+/* Question heading */
+.question-header {
+  margin-bottom: 20px;
+}
+
+.question-badge {
+  display: inline-block;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.question-text {
+  font-size: 24px;
+  line-height: 1.5;
+  margin-bottom: 25px;
+}
+
+/* IMPORTANT: Answers must be vertical */
+.options-container {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 14px !important;
+  width: 100%;
+}
+
+/* Individual answer */
+.option {
+  display: flex !important;
+  align-items: center;
+  width: 100% !important;
+  min-height: 60px;
+  box-sizing: border-box;
+  padding: 15px 18px;
+  margin: 0 !important;
+  border-radius: 14px;
+  cursor: pointer;
+  text-align: left;
+  font-size: 17px;
+  line-height: 1.4;
+  transition: all 0.2s ease;
+}
+
+/* A / B / C / D */
+.option-letter {
+  flex: 0 0 42px;
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 14px;
+  border-radius: 50%;
+  font-weight: 800;
+  font-size: 16px;
+}
+
+/* Answer text */
+.option-text {
+  flex: 1;
+  min-width: 0;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+/* Selected answer */
+.option-selected {
+  transform: translateX(5px);
+}
+
+/* Correct answer */
+.option-correct {
+  transform: translateX(5px);
+}
+
+/* Wrong answer */
+.option-incorrect {
+  transform: translateX(5px);
+}
+
+/* Check Answer button */
+.btn-submit {
+  margin-top: 25px;
+}
+
+/* Answer feedback */
+.answer-feedback {
+  margin-top: 25px;
+  padding: 20px;
+  border-radius: 15px;
+  line-height: 1.6;
+}
+
+/* Mobile */
+@media (max-width: 700px) {
+  .practice-section {
+    padding: 20px;
+    margin: 35px auto;
+  }
+
+  .question-card {
+    padding: 20px;
+  }
+
+  .question-text {
+    font-size: 20px;
+  }
+
+  .option {
+    min-height: 55px;
+    font-size: 15px;
+    padding: 12px;
+  }
+
+  .option-letter {
+    flex: 0 0 36px;
+    width: 36px;
+    height: 36px;
+    margin-right: 10px;
+  }
+}
+
+/* =========================================
+   ABOUT PAGE
+========================================= */
+
+.about-page {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  overflow-y: auto;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(99, 102, 241, 0.35), transparent 35%),
+    radial-gradient(circle at 80% 30%, rgba(168, 85, 247, 0.30), transparent 35%),
+    linear-gradient(135deg, #050816, #11104a 50%, #1b0b3d);
+  color: white;
+}
+
+.about-content {
+  width: min(1200px, 92%);
+  margin: auto;
+  padding: 90px 20px 70px;
+}
+
+.about-close {
+  position: fixed;
+  top: 25px;
+  right: 30px;
+  z-index: 10000;
+
+  width: 48px;
+  height: 48px;
+
+  border: 1px solid rgba(255,255,255,0.25);
+  border-radius: 50%;
+
+  background: rgba(255,255,255,0.08);
+  color: white;
+
+  font-size: 22px;
+  cursor: pointer;
+
+  backdrop-filter: blur(15px);
+
+  transition: 0.3s;
+}
+
+.about-close:hover {
+  transform: rotate(90deg) scale(1.08);
+  background: rgba(168,85,247,0.35);
+}
+
+.about-hero {
+  text-align: center;
+  max-width: 850px;
+  margin: 0 auto 80px;
+}
+
+.about-badge {
+  display: inline-block;
+
+  padding: 10px 20px;
+  margin-bottom: 25px;
+
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 30px;
+
+  background: rgba(255,255,255,0.08);
+
+  font-size: 14px;
+  letter-spacing: 1.5px;
+
+  backdrop-filter: blur(15px);
+}
+
+.about-hero h1 {
+  font-size: clamp(40px, 6vw, 72px);
+  margin-bottom: 25px;
+
+  background: linear-gradient(
+    90deg,
+    #ffffff,
+    #a78bfa,
+    #60a5fa
+  );
+
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.about-hero p {
+  font-size: 19px;
+  line-height: 1.8;
+  color: rgba(255,255,255,0.75);
+}
+
+/* TEAM */
+
+.team-section {
+  text-align: center;
+}
+
+.team-section h2 {
+  font-size: 38px;
+  margin-bottom: 10px;
+}
+
+.team-subtitle {
+  color: rgba(255,255,255,0.6);
+  margin-bottom: 45px;
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+.team-card {
+  padding: 28px 20px;
+
+  border-radius: 24px;
+
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.15);
+
+  backdrop-filter: blur(20px);
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.team-card:hover {
+  transform: translateY(-10px);
+
+  border-color: rgba(167,139,250,0.7);
+
+  box-shadow:
+    0 20px 50px rgba(99,102,241,0.25);
+}
+
+.team-image-wrapper {
+  width: 130px;
+  height: 130px;
+
+  margin: 0 auto 20px;
+
+  padding: 4px;
+
+  border-radius: 50%;
+
+  background: linear-gradient(
+    135deg,
+    #8b5cf6,
+    #3b82f6,
+    #ec4899
+  );
+}
+
+.team-image {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  border-radius: 50%;
+
+  display: block;
+}
+
+.team-card h3 {
+  font-size: 22px;
+  margin: 12px 0;
+}
+
+.instagram-link {
+  color: #c4b5fd;
+  text-decoration: none;
+  font-size: 15px;
+
+  transition: 0.3s;
+}
+
+.instagram-link:hover {
+  color: white;
+}
+
+/* MOBILE */
+
+@media (max-width: 800px) {
+
+  .team-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .about-content {
+    padding-top: 80px;
+  }
+
+}
+
+@media (max-width: 500px) {
+
+  .team-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-hero h1 {
+    font-size: 40px;
+  }
+
+  .about-hero p {
+    font-size: 16px;
+  }
+
+}
+
+/* =========================================
+   QUIZ OPTIONS - NEON PURPLE STYLE
+   ========================================= */
+
+.question-options {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  width: 100%;
+  margin-top: 24px;
+}
+
+/* Individual option */
+.option-button {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+
+  width: 100%;
+  min-height: 68px;
+  padding: 14px 18px;
+
+  border: 1px solid rgba(139, 92, 246, 0.45);
+  border-radius: 16px;
+
+  background: rgba(20, 15, 65, 0.75);
+
+  color: #f5f3ff;
+
+  font-size: 16px;
+  font-weight: 500;
+
+  text-align: left;
+
+  cursor: pointer;
+
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+/* Hover effect */
+.option-button:hover {
+  transform: translateY(-3px);
+
+  background: rgba(55, 30, 120, 0.85);
+
+  border-color: #a855f7;
+
+  box-shadow:
+    0 0 18px rgba(168, 85, 247, 0.35);
+}
+
+/* Selected option */
+.option-button.selected {
+  background: linear-gradient(
+    135deg,
+    #6d28d9,
+    #a21caf
+  );
+
+  border-color: #e879f9;
+
+  box-shadow:
+    0 0 20px rgba(217, 70, 239, 0.55),
+    0 0 40px rgba(124, 58, 237, 0.25);
+
+  color: white;
+}
+
+/* A / B / C / D circle */
+.option-letter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  width: 40px;
+  height: 40px;
+
+  border-radius: 11px;
+
+  background: rgba(139, 92, 246, 0.18);
+
+  border: 1px solid rgba(168, 85, 247, 0.55);
+
+  color: #c084fc;
+
+  font-size: 15px;
+  font-weight: 700;
+}
+
+/* Letter when selected */
+.option-button.selected .option-letter {
+  background: rgba(255, 255, 255, 0.18);
+
+  border-color: rgba(255, 255, 255, 0.6);
+
+  color: white;
+}
+
+/* Option text */
+.option-text {
+  flex: 1;
+
+  line-height: 1.4;
+}
+
+/* =========================================
+   MOBILE
+   ========================================= */
+
+@media (max-width: 700px) {
+
+  .question-options {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .option-button {
+    min-height: 60px;
+    padding: 12px 14px;
+    font-size: 15px;
+  }
+
+  .option-letter {
+    width: 36px;
+    height: 36px;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+#practice-section {
+  scroll-margin-top: 100px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+#practice-section {
+  scroll-margin-top: 90px;
+}
+
+/* =========================================================
+   AI BUDDY — isolated floating chatbot
+   ========================================================= */
+
+.ai-buddy-launcher {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 999px;
+  padding: 13px 18px;
+  background: linear-gradient(135deg, #6366f1, #a855f7);
+  color: white;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.35), 0 0 28px rgba(99, 102, 241, 0.35);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.ai-buddy-launcher:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.4), 0 0 35px rgba(168, 85, 247, 0.4);
+}
+
+.ai-buddy {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 1000;
+  width: min(390px, calc(100vw - 32px));
+  height: min(590px, calc(100vh - 48px));
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 22px;
+  background: rgba(8, 15, 45, 0.96);
+  backdrop-filter: blur(22px);
+  -webkit-backdrop-filter: blur(22px);
+  box-shadow: 0 28px 80px rgba(0, 0, 0, 0.5), 0 0 40px rgba(99, 102, 241, 0.2);
+}
+
+.ai-buddy-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.ai-buddy-header strong,
+.ai-buddy-header small {
+  display: block;
+}
+
+.ai-buddy-header strong {
+  font-size: 16px;
+}
+
+.ai-buddy-header small {
+  margin-top: 3px;
+  color: #aeb9df;
+  font-size: 12px;
+}
+
+.ai-buddy-actions {
+  display: flex;
+  gap: 5px;
+}
+
+.ai-buddy-actions button {
+  width: 32px;
+  height: 32px;
+  border: 0;
+  border-radius: 9px;
+  background: rgba(255, 255, 255, 0.08);
+  color: white;
+  font-size: 19px;
+  cursor: pointer;
+}
+
+.ai-buddy-messages {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 16px;
+}
+
+.ai-buddy-message {
+  max-width: 88%;
+  padding: 11px 13px;
+  border-radius: 15px;
+  white-space: pre-wrap;
+  line-height: 1.5;
+  font-size: 14px;
+}
+
+.ai-buddy-message.assistant {
+  align-self: flex-start;
+  background: rgba(255, 255, 255, 0.08);
+  color: #eef2ff;
+  border-bottom-left-radius: 5px;
+}
+
+.ai-buddy-message.user {
+  align-self: flex-end;
+  background: linear-gradient(135deg, #6366f1, #7c3aed);
+  color: white;
+  border-bottom-right-radius: 5px;
+}
+
+.ai-buddy-form {
+  display: flex;
+  gap: 8px;
+  padding: 12px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(5, 12, 38, 0.72);
+}
+
+.ai-buddy-form input {
+  min-width: 0;
+  flex: 1;
+  border: 1px solid rgba(148, 163, 184, 0.25);
+  border-radius: 13px;
+  outline: none;
+  padding: 12px 13px;
+  background: rgba(255, 255, 255, 0.06);
+  color: white;
+  font: inherit;
+}
+
+.ai-buddy-form input::placeholder {
+  color: #7783aa;
+}
+
+.ai-buddy-form input:focus {
+  border-color: #818cf8;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.12);
+}
+
+.ai-buddy-form button {
+  width: 45px;
+  border: 0;
+  border-radius: 13px;
+  background: linear-gradient(135deg, #6366f1, #a855f7);
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.ai-buddy-form button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+@media (max-width: 520px) {
+  .ai-buddy-launcher {
+    right: 14px;
+    bottom: 14px;
+  }
+
+  .ai-buddy {
+    right: 10px;
+    bottom: 10px;
+    width: calc(100vw - 20px);
+    height: calc(100vh - 20px);
+  }
+}
+
+/* =========================================================
+   LEFT QUICK NAVIGATION DOCK (AI STUDIO vs VIRTUAL LAB)
+   ========================================================= */
+
+.app-left-nav-dock {
+  position: fixed;
+  left: 18px;
+  top: 110px;
+  z-index: 99;
+
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  background: rgba(10, 18, 50, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 20px;
+  padding: 10px 8px;
+
+  box-shadow:
+    0 12px 35px rgba(0, 0, 0, 0.4),
+    0 0 25px rgba(99, 102, 241, 0.2);
+  transition: all 0.3s ease;
+}
+
+.left-dock-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+
+  width: 72px;
+  padding: 10px 6px;
+
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+
+  color: #c7d2fe;
+  font-family: inherit;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+.left-dock-btn:hover {
+  background: rgba(99, 102, 241, 0.25);
+  border-color: rgba(165, 180, 252, 0.4);
+  color: #ffffff;
+  transform: translateX(4px);
+}
+
+.left-dock-btn.active {
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.6), rgba(168, 85, 247, 0.6));
+  border-color: #a78bfa;
+  color: #ffffff;
+  box-shadow: 0 0 16px rgba(168, 85, 247, 0.5);
+}
+
+.dock-icon {
+  font-size: 22px;
+  line-height: 1;
+}
+
+.dock-label {
+  letter-spacing: -0.2px;
+}
+
+.dock-pulse-tag {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  background: linear-gradient(135deg, #10b981, #059669);
+  color: white;
+  font-size: 9px;
+  font-weight: 800;
+  padding: 2px 5px;
+  border-radius: 6px;
+  box-shadow: 0 0 8px rgba(16, 185, 129, 0.6);
+  animation: pulseBadge 2s infinite;
+}
+
+@keyframes pulseBadge {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+.nav-virtual-lab-btn {
+  background: rgba(99, 102, 241, 0.2);
+  border: 1px solid rgba(168, 85, 247, 0.35);
+}
+
+.nav-virtual-lab-btn:hover,
+.nav-virtual-lab-btn.active-lab {
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.4), rgba(168, 85, 247, 0.5)) !important;
+  border-color: #c084fc !important;
+  box-shadow: 0 0 16px rgba(192, 132, 252, 0.4) !important;
+}
+
+/* =========================================================
+   VIRTUAL LAB OUTER CONTAINER
+   ========================================================= */
+
+.vlab-outer-main {
+  width: 100%;
+  max-width: 1520px;
+  margin: auto;
+  padding: 95px 24px 80px 110px; /* offset for left dock */
+}
+
+@media (max-width: 1024px) {
+  .vlab-outer-main {
+    padding: 85px 16px 80px;
+  }
+  .app-left-nav-dock {
+    top: auto;
+    bottom: 16px;
+    left: 16px;
+    flex-direction: row;
+    border-radius: 16px;
+  }
+}
+
+.vlab-page-container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* =========================================================
+   VLAB HEADER BANNER
+   ========================================================= */
+
+.vlab-header-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 18px;
+
+  padding: 24px 30px;
+  background: linear-gradient(135deg, rgba(30, 41, 85, 0.75), rgba(46, 20, 90, 0.65));
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 24px;
+  backdrop-filter: blur(25px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+}
+
+.vlab-banner-info {
+  max-width: 900px;
+}
+
+.vlab-title-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 8px;
+}
+
+.vlab-logo-pill {
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 4px 10px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, #10b981, #06b6d4);
+  color: #ffffff;
+  box-shadow: 0 0 12px rgba(16, 185, 129, 0.4);
+}
+
+.vlab-title-row h2 {
+  font-size: 26px;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: -0.5px;
+}
+
+.vlab-subtitle {
+  color: #cbd5e1;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* =========================================================
+   MAIN LAYOUT GRID: SIDEBAR (LEFT) + WORKBENCH (RIGHT)
+   ========================================================= */
+
+.vlab-layout-grid {
+  display: grid;
+  grid-template-columns: 360px 1fr;
+  gap: 24px;
+  align-items: start;
+}
+
+@media (max-width: 1100px) {
+  .vlab-layout-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* =========================================================
+   VLAB SIDEBAR (FILTER & SEARCH CONTROLS)
+   ========================================================= */
+
+.vlab-sidebar {
+  background: rgba(15, 23, 56, 0.75);
+  backdrop-filter: blur(25px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 24px;
+  padding: 24px;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.vlab-sidebar-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.vlab-sidebar-title span {
+  font-size: 20px;
+}
+
+.vlab-sidebar-title h3 {
+  font-size: 17px;
+  font-weight: 700;
+  color: #e2e8f0;
+}
+
+.vlab-filter-section {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.vlab-filter-label {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #94a3b8;
+}
+
+/* Subject Choice Buttons */
+.vlab-subject-buttons {
+  display: flex;
+  gap: 6px;
+}
+
+.vlab-subject-btn {
+  flex: 1;
+  padding: 8px 10px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.05);
+  color: #cbd5e1;
+  font-size: 12px;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-align: center;
+}
+
+.vlab-subject-btn:hover {
+  background: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+}
+
+.vlab-subject-btn.active {
+  background: #3b82f6;
+  border-color: #60a5fa;
+  color: #ffffff;
+}
+
+.vlab-subject-btn.active-physics {
+  background: linear-gradient(135deg, #0ea5e9, #2563eb);
+  border-color: #38bdf8;
+  color: #ffffff;
+  box-shadow: 0 0 12px rgba(14, 165, 233, 0.4);
+}
+
+.vlab-subject-btn.active-chemistry {
+  background: linear-gradient(135deg, #ec4899, #9333ea);
+  border-color: #f472b6;
+  color: #ffffff;
+  box-shadow: 0 0 12px rgba(236, 72, 153, 0.4);
+}
+
+/* Class Dropdown */
+.vlab-class-select {
+  width: 100%;
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(15, 23, 42, 0.8);
+  color: #ffffff;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  outline: none;
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+
+.vlab-class-select:focus {
+  border-color: #818cf8;
+}
+
+/* Search Form with Dedicated Search Button */
+.vlab-search-form {
+  display: flex;
+  gap: 6px;
+}
+
+.vlab-search-input {
+  flex: 1;
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.06);
+  color: #ffffff;
+  font-family: inherit;
+  font-size: 13px;
+  outline: none;
+  transition: all 0.2s;
+}
+
+.vlab-search-input:focus {
+  border-color: #818cf8;
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+}
+
+.vlab-search-btn {
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: none;
+  background: linear-gradient(135deg, #6366f1, #a855f7);
+  color: #ffffff;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.15s, box-shadow 0.2s;
+  white-space: nowrap;
+}
+
+.vlab-search-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 15px rgba(99, 102, 241, 0.5);
+}
+
+.vlab-active-filter-tag {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(99, 102, 241, 0.2);
+  border: 1px solid rgba(165, 180, 252, 0.3);
+  padding: 4px 10px;
+  border-radius: 8px;
+  font-size: 11px;
+  color: #c7d2fe;
+}
+
+.clear-tag-btn {
+  background: none;
+  border: none;
+  color: #cbd5e1;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* Experiments List in Sidebar */
+.vlab-experiments-list-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.experiments-count-bar {
+  font-size: 11px;
+  font-weight: 700;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.vlab-experiments-scroll {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-height: 520px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+.vlab-experiments-scroll::-webkit-scrollbar {
+  width: 5px;
+}
+.vlab-experiments-scroll::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 3px;
+}
+
+.vlab-exp-item-card {
+  padding: 14px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  cursor: pointer;
+  transition: all 0.25s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.vlab-exp-item-card:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(165, 180, 252, 0.3);
+  transform: translateY(-2px);
+}
+
+.vlab-exp-item-card.active-exp {
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.25), rgba(168, 85, 247, 0.25));
+  border-color: #a78bfa;
+  box-shadow: 0 0 18px rgba(168, 85, 247, 0.3);
+}
+
+.exp-item-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.exp-item-icon {
+  font-size: 20px;
+}
+
+.exp-item-meta {
+  display: flex;
+  gap: 6px;
+}
+
+.exp-class-badge {
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 7px;
+  border-radius: 6px;
+  background: rgba(59, 130, 246, 0.2);
+  color: #93c5fd;
+  border: 1px solid rgba(147, 197, 253, 0.3);
+}
+
+.exp-subj-badge {
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 7px;
+  border-radius: 6px;
+}
+.subj-physics {
+  background: rgba(14, 165, 233, 0.2);
+  color: #7dd3fc;
+  border: 1px solid rgba(56, 189, 248, 0.3);
+}
+.subj-chemistry {
+  background: rgba(236, 72, 153, 0.2);
+  color: #f472b6;
+  border: 1px solid rgba(244, 114, 182, 0.3);
+}
+
+.exp-item-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: #f8fafc;
+  line-height: 1.35;
+}
+
+.exp-item-aim {
+  font-size: 11px;
+  color: #94a3b8;
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* =========================================================
+   RIGHT MAIN WORKSPACE
+   ========================================================= */
+
+.vlab-main-workspace {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Active Experiment Banner */
+.vlab-exp-banner-card {
+  padding: 24px;
+  background: rgba(15, 23, 56, 0.75);
+  backdrop-filter: blur(25px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 24px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.exp-banner-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.exp-meta-badges {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.vlab-syllabus-badge {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 9px;
+  border-radius: 8px;
+  background: rgba(16, 185, 129, 0.2);
+  color: #6ee7b7;
+  border: 1px solid rgba(52, 211, 153, 0.35);
+}
+
+.exp-difficulty-badge {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 9px;
+  border-radius: 8px;
+  background: rgba(245, 158, 11, 0.2);
+  color: #fcd34d;
+  border: 1px solid rgba(251, 191, 36, 0.35);
+}
+
+.vlab-view-tabs {
+  display: flex;
+  gap: 6px;
+  background: rgba(0, 0, 0, 0.3);
+  padding: 4px;
+  border-radius: 12px;
+}
+
+.vlab-tab-btn {
+  padding: 8px 14px;
+  border-radius: 9px;
+  border: none;
+  background: transparent;
+  color: #94a3b8;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.vlab-tab-btn:hover {
+  color: #ffffff;
+}
+
+.vlab-tab-btn.active-tab {
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  color: #ffffff;
+  box-shadow: 0 2px 10px rgba(99, 102, 241, 0.4);
+}
+
+.exp-banner-title {
+  font-size: 22px;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: -0.3px;
+}
+
+.exp-banner-aim {
+  font-size: 13px;
+  color: #cbd5e1;
+  line-height: 1.5;
+}
+
+/* =========================================================
+   EQUIPMENTS REQUIRED TRAY
+   ========================================================= */
+
+.vlab-equipments-tray {
+  padding: 16px 20px;
+  background: rgba(15, 23, 56, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.equipments-tray-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 12px;
+  font-weight: 700;
+  color: #a5b4fc;
+}
+
+.tray-tip {
+  font-size: 11px;
+  font-weight: 500;
+  color: #94a3b8;
+}
+
+.equipments-grid {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  padding-bottom: 6px;
+}
+
+.equipments-grid::-webkit-scrollbar {
+  height: 4px;
+}
+.equipments-grid::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 2px;
+}
+
+.equipment-chip {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 14px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  transition: all 0.2s;
+}
+
+.equipment-chip:hover {
+  background: rgba(255, 255, 255, 0.09);
+  border-color: #818cf8;
+}
+
+.eq-icon {
+  font-size: 20px;
+}
+
+.eq-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.eq-text strong {
+  font-size: 12px;
+  color: #ffffff;
+}
+
+.eq-text span {
+  font-size: 10px;
+  color: #94a3b8;
+}
+
+/* =========================================================
+   SIMULATOR WORKBENCH & GRAPH PAGE
+   ========================================================= */
+
+.vlab-sim-container {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* Simulator Toolbar */
+.vlab-sim-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 14px;
+  padding: 14px 20px;
+  background: rgba(15, 23, 56, 0.65);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 18px;
+}
+
+.vlab-sim-controls-group,
+.vlab-sim-actions-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.vlab-control-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: #cbd5e1;
+}
+
+.vlab-select {
+  padding: 6px 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(15, 23, 42, 0.9);
+  color: #ffffff;
+  font-family: inherit;
+  font-size: 12px;
+  outline: none;
+}
+
+.vlab-btn {
+  padding: 9px 16px;
+  border-radius: 10px;
+  border: none;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.vlab-btn-primary {
+  background: linear-gradient(135deg, #6366f1, #a855f7);
+  color: #ffffff;
+}
+
+.vlab-btn-secondary {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #e2e8f0;
+}
+.vlab-btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.vlab-btn-active {
+  background: linear-gradient(135deg, #10b981, #059669);
+  color: #ffffff;
+  box-shadow: 0 0 12px rgba(16, 185, 129, 0.4);
+}
+
+.vlab-btn-action {
+  background: linear-gradient(135deg, #0284c7, #2563eb);
+  color: #ffffff;
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.35);
+}
+
+.vlab-btn-clear {
+  background: rgba(239, 68, 68, 0.15);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  color: #fca5a5;
+}
+.vlab-btn-clear:hover {
+  background: rgba(239, 68, 68, 0.25);
+}
+
+.vlab-btn-analyze {
+  background: linear-gradient(135deg, #f59e0b, #ec4899);
+  color: #ffffff;
+  font-size: 13px;
+  padding: 10px 20px;
+  box-shadow: 0 0 20px rgba(245, 158, 11, 0.4);
+}
+.vlab-btn-analyze:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 25px rgba(245, 158, 11, 0.6);
+}
+
+.vlab-btn-mini {
+  padding: 5px 10px;
+  border-radius: 7px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.06);
+  color: #e2e8f0;
+  font-family: inherit;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.vlab-btn-mini:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.vlab-slider-mini {
+  width: 90px;
+}
+
+/* =========================================================
+   DUAL WORKSPACE GRID: BENCH (LEFT) + GRAPH (RIGHT)
+   ========================================================= */
+
+.vlab-workspace-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+@media (max-width: 1200px) {
+  .vlab-workspace-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.vlab-bench-card,
+.vlab-graph-card {
+  background: rgba(15, 23, 56, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 22px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+}
+
+.vlab-bench-header,
+.vlab-graph-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.vlab-bench-header h4,
+.vlab-graph-header h3 {
+  font-size: 15px;
+  font-weight: 700;
+  color: #f8fafc;
+}
+
+.vlab-circuit-status {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 6px;
+}
+.status-live {
+  background: rgba(16, 185, 129, 0.2);
+  color: #6ee7b7;
+  border: 1px solid rgba(52, 211, 153, 0.4);
+}
+.status-idle {
+  background: rgba(148, 163, 184, 0.2);
+  color: #cbd5e1;
+}
+
+.vlab-alert-banner {
+  background: rgba(245, 158, 11, 0.15);
+  border: 1px solid rgba(245, 158, 11, 0.4);
+  color: #fef08a;
+  padding: 10px 14px;
+  border-radius: 12px;
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+/* =========================================================
+   AUTHENTIC LABORATORY MILLIMETRE GRAPH SHEET STYLING
+   ========================================================= */
+
+.graph-title-group {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.graph-sheet-tag {
+  font-size: 10px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #4ade80;
+}
+
+.graph-legend {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 11px;
+  color: #94a3b8;
+}
+
+.legend-dot.plotted {
+  display: inline-block;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #f43f5e;
+  border: 1px solid #ffffff;
+}
+
+.legend-line.fit {
+  display: inline-block;
+  width: 18px;
+  height: 2px;
+  background: #38bdf8;
+}
+
+.vlab-graph-canvas-container {
+  width: 100%;
+  background: #091712; /* Dark green lab millimetre paper style */
+  border: 2px solid #22c55e;
+  border-radius: 14px;
+  padding: 8px;
+  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.7);
+}
+
+.vlab-graph-svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Observation Tables on Graph Sheet */
+.vlab-obs-mini-table {
+  background: rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.table-caption {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  font-weight: 700;
+  color: #a5b4fc;
+}
+
+.vlab-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 11px;
+  text-align: center;
+}
+
+.vlab-table th {
+  background: rgba(255, 255, 255, 0.08);
+  color: #c7d2fe;
+  padding: 6px;
+  font-weight: 600;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.vlab-table td {
+  padding: 6px;
+  color: #e2e8f0;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.vlab-empty-obs {
+  font-size: 12px;
+  color: #94a3b8;
+  text-align: center;
+  padding: 14px;
+}
+
+.status-pill {
+  padding: 2px 7px;
+  border-radius: 6px;
+  font-size: 10px;
+  font-weight: 700;
+}
+.pill-good {
+  background: rgba(16, 185, 129, 0.2);
+  color: #6ee7b7;
+}
+.pill-bad {
+  background: rgba(239, 68, 68, 0.2);
+  color: #fca5a5;
+}
+
+/* =========================================================
+   OHM'S LAW APPARATUS COMPONENTS
+   ========================================================= */
+
+.vlab-circuit-diagram {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.vlab-meters-row {
+  display: flex;
+  gap: 14px;
+}
+
+.vlab-meter-box {
+  flex: 1;
+  background: #0f172a;
+  border: 2px solid #334155;
+  border-radius: 14px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.meter-label {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  color: #94a3b8;
+}
+
+.meter-dial {
+  width: 110px;
+  height: 60px;
+  position: relative;
+  border-bottom: 2px solid #475569;
+  overflow: hidden;
+}
+
+.meter-scale-marks {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  font-size: 8px;
+  color: #cbd5e1;
+  position: absolute;
+  top: 6px;
+}
+
+.meter-needle {
+  width: 2px;
+  height: 48px;
+  background: #ef4444;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform-origin: bottom center;
+  transition: transform 0.2s ease-out;
+}
+
+.meter-pivot {
+  width: 10px;
+  height: 10px;
+  background: #1e293b;
+  border: 2px solid #ef4444;
+  border-radius: 50%;
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.meter-digital-readout {
+  font-size: 16px;
+  font-family: monospace;
+  font-weight: 800;
+  color: #38bdf8;
+  background: #020617;
+  padding: 3px 10px;
+  border-radius: 6px;
+  border: 1px solid #1e293b;
+}
+
+.meter-lc {
+  font-size: 9px;
+  color: #64748b;
+}
+
+/* Rheostat */
+.rheostat-card {
+  background: rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.rheostat-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: #e2e8f0;
+}
+
+.vlab-slider {
+  width: 100%;
+  accent-color: #a855f7;
+}
+
+.slider-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 10px;
+  color: #94a3b8;
+}
+
+/* Wire & Plug Key Row */
+.vlab-components-row {
+  display: flex;
+  gap: 12px;
+}
+
+.vlab-wire-card {
+  flex: 2;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 12px;
+}
+
+.wire-icon {
+  font-size: 24px;
+}
+
+.wire-info {
+  display: flex;
+  flex-direction: column;
+  font-size: 11px;
+  color: #cbd5e1;
+}
+
+.wire-overheated {
+  border-color: #ef4444;
+  background: rgba(239, 68, 68, 0.15);
+  animation: heatGlow 1s infinite alternate;
+}
+
+@keyframes heatGlow {
+  0% { box-shadow: 0 0 10px rgba(239, 68, 68, 0.3); }
+  100% { box-shadow: 0 0 25px rgba(239, 68, 68, 0.7); }
+}
+
+.vlab-plug-key-visual {
+  flex: 1;
+  background: #0f172a;
+  border: 2px solid #334155;
+  border-radius: 12px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.vlab-plug-key-visual:hover {
+  border-color: #818cf8;
+}
+
+.plug-brass-body {
+  width: 45px;
+  height: 25px;
+  background: #b45309;
+  border-radius: 6px;
+  display: grid;
+  place-items: center;
+}
+
+.plug-pin {
+  font-size: 9px;
+  font-weight: 800;
+  color: #fef08a;
+}
+
+.key-subtext {
+  font-size: 10px;
+  color: #94a3b8;
+}
+
+/* =========================================================
+   TITRATION SIMULATOR COMPONENTS
+   ========================================================= */
+
+.vlab-titration-stage {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 30px;
+  min-height: 280px;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 16px;
+  position: relative;
+}
+
+.vlab-burette-assembly {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.burette-top-cap {
+  font-size: 9px;
+  font-weight: 700;
+  color: #c084fc;
+  background: rgba(192, 132, 252, 0.2);
+  padding: 2px 6px;
+  border-radius: 4px;
+  margin-bottom: 2px;
+}
+
+.burette-glass {
+  width: 26px;
+  height: 180px;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  border-radius: 4px 4px 0 0;
+  background: rgba(255, 255, 255, 0.05);
+  position: relative;
+  overflow: hidden;
+}
+
+.burette-liquid {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: #701a75; /* KMnO4 purple */
+  transition: height 0.3s ease-out;
+}
+
+.burette-markings {
+  position: absolute;
+  right: 2px;
+  top: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-size: 7px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.burette-stopcock-unit {
+  margin-top: 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.stopcock-visual {
+  width: 14px;
+  height: 10px;
+  background: #334155;
+  border-radius: 2px;
+  position: relative;
+}
+
+.stopcock-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 130px;
+}
+
+.active-flow {
+  background: #10b981 !important;
+  color: white !important;
+}
+
+.burette-drip-container {
+  height: 25px;
+  position: relative;
+}
+
+.burette-droplet {
+  width: 6px;
+  height: 9px;
+  background: #c084fc;
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: fallDrop 0.4s infinite;
+}
+
+@keyframes fallDrop {
+  0% { top: 0; opacity: 1; }
+  100% { top: 25px; opacity: 0; }
+}
+
+/* Conical Flask */
+.vlab-flask-tile-assembly {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.vlab-conical-flask {
+  width: 110px;
+  height: 130px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.2s;
+}
+
+.flask-swirling {
+  animation: swirlShake 0.4s ease-in-out infinite;
+}
+
+@keyframes swirlShake {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-5deg); }
+  75% { transform: rotate(5deg); }
+}
+
+.flask-neck {
+  width: 24px;
+  height: 35px;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  border-bottom: none;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.flask-body {
+  width: 100px;
+  height: 95px;
+  clip-path: polygon(38% 0%, 62% 0%, 100% 100%, 0% 100%);
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.05);
+  position: relative;
+  overflow: hidden;
+}
+
+.flask-liquid {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  transition: all 0.3s ease;
+}
+
+.vlab-white-tile {
+  width: 130px;
+  height: 14px;
+  background: #f8fafc;
+  border: 1px solid #cbd5e1;
+  border-radius: 4px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  margin-top: -2px;
+}
+
+.tile-label {
+  font-size: 7px;
+  color: #64748b;
+  display: block;
+}
+
+/* Meniscus Magnifier */
+.vlab-meniscus-zoom-box {
+  background: #020617;
+  border: 1px solid #334155;
+  border-radius: 12px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.zoom-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  color: #94a3b8;
+}
+
+.zoom-canvas {
+  height: 40px;
+  background: #0f172a;
+  border-radius: 8px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.meniscus-upper-correct {
+  color: #4ade80;
+  font-size: 11px;
+  font-weight: 700;
+}
+.meniscus-lower-wrong {
+  color: #f87171;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.vlab-meniscus-toggle {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.vlab-chip-btn {
+  padding: 4px 8px;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.05);
+  color: #cbd5e1;
+  font-size: 11px;
+  font-family: inherit;
+  cursor: pointer;
+}
+.vlab-chip-btn.active {
+  background: #3b82f6;
+  color: white;
+}
+
+/* =========================================================
+   PENDULUM & OPTICS & REACTION STYLES
+   ========================================================= */
+
+.vlab-pendulum-stage,
+.vlab-prism-stage,
+.vlab-reaction-stage,
+.vlab-archimedes-stage,
+.vlab-circuit-stage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.vlab-pendulum-svg,
+.vlab-prism-svg,
+.vlab-chem-svg {
+  width: 100%;
+  max-height: 280px;
+}
+
+.vlab-stopwatch-unit {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #020617;
+  border: 1px solid #334155;
+  border-radius: 12px;
+  padding: 10px 16px;
+}
+
+.stopwatch-display {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+}
+
+.stopwatch-digits {
+  font-size: 22px;
+  font-family: monospace;
+  font-weight: 800;
+  color: #38bdf8;
+}
+
+.stopwatch-oscillations {
+  font-size: 12px;
+  color: #94a3b8;
+}
+
+.stopwatch-controls {
+  display: flex;
+  gap: 6px;
+}
+
+/* pH Testing Grid */
+.vlab-ph-testing-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.solutions-buttons-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.vlab-sol-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.05);
+  color: #ffffff;
+  font-size: 11px;
+  font-family: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.vlab-sol-btn:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.sol-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.strips-display-row {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding-top: 10px;
+}
+
+.ph-strip-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.ph-strip-paper {
+  width: 32px;
+  height: 70px;
+  border-radius: 4px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  display: grid;
+  place-items: center;
+  font-size: 8px;
+  font-weight: 800;
+  color: rgba(0, 0, 0, 0.6);
+  transition: background-color 0.4s ease;
+}
+
+.strip-label {
+  font-size: 10px;
+  color: #cbd5e1;
+}
+
+.strip-ph {
+  font-size: 10px;
+  font-weight: 700;
+  color: #4ade80;
+}
+
+/* Materials Tray in Circuit Sim */
+.vlab-materials-tray {
+  background: rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.tray-buttons-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.tray-sample-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.04);
+  color: #cbd5e1;
+  font-size: 11px;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.tray-sample-btn:hover,
+.tray-sample-btn.selected-sample {
+  background: #3b82f6;
+  border-color: #60a5fa;
+  color: white;
+}
+
+/* =========================================================
+   THEORY & VIVA PANELS
+   ========================================================= */
+
+.vlab-theory-card,
+.vlab-viva-panel {
+  background: rgba(15, 23, 56, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 22px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.theory-section h3 {
+  font-size: 16px;
+  font-weight: 700;
+  color: #818cf8;
+  margin-bottom: 8px;
+}
+
+.theory-section p {
+  font-size: 13px;
+  color: #cbd5e1;
+  line-height: 1.6;
+}
+
+.formula-code-block {
+  background: #020617;
+  border: 1px solid #334155;
+  border-radius: 10px;
+  padding: 14px;
+  color: #38bdf8;
+  font-family: monospace;
+  font-size: 13px;
+  line-height: 1.5;
+  white-space: pre-wrap;
+}
+
+.procedure-ordered-list {
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  color: #cbd5e1;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.step-num {
+  font-weight: 700;
+  color: #a5b4fc;
+}
+
+.viva-questions-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.viva-qa-card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.viva-q-row {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.viva-badge {
+  font-size: 10px;
+  font-weight: 800;
+  padding: 2px 6px;
+  border-radius: 6px;
+  background: rgba(99, 102, 241, 0.25);
+  color: #c7d2fe;
+}
+
+.viva-q-row h4 {
+  font-size: 14px;
+  font-weight: 700;
+  color: #f8fafc;
+}
+
+.viva-a-row {
+  font-size: 13px;
+  color: #cbd5e1;
+  line-height: 1.5;
+  padding-left: 10px;
+  border-left: 2px solid #10b981;
+}
+
+.viva-a-row strong {
+  color: #6ee7b7;
+}
+
+/* =========================================================
+   MISTAKE ANALYSIS REPORT MODAL
+   ========================================================= */
+
+.vlab-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: grid;
+  place-items: center;
+  padding: 20px;
+}
+
+.vlab-modal-container {
+  width: 100%;
+  max-width: 820px;
+  max-height: 90vh;
+  background: #0f172a;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 24px;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  animation: modalPop 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes modalPop {
+  0% { transform: scale(0.92); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.vlab-modal-header {
+  padding: 20px 24px;
+  background: rgba(255, 255, 255, 0.03);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.vlab-modal-badge {
+  font-size: 10px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 3px 8px;
+  border-radius: 6px;
+  background: linear-gradient(135deg, #6366f1, #a855f7);
+  color: white;
+}
+
+.vlab-modal-title-group h2 {
+  font-size: 20px;
+  font-weight: 800;
+  color: #ffffff;
+  margin-top: 4px;
+}
+
+.vlab-modal-subtitle {
+  font-size: 12px;
+  color: #94a3b8;
+}
+
+.vlab-modal-close {
+  background: rgba(255, 255, 255, 0.08);
+  border: none;
+  color: #cbd5e1;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.vlab-modal-close:hover {
+  background: rgba(239, 68, 68, 0.3);
+  color: white;
+}
+
+.vlab-modal-body {
+  padding: 24px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Score Banner */
+.vlab-score-banner {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  background: linear-gradient(135deg, rgba(30, 41, 59, 0.7), rgba(51, 65, 85, 0.4));
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 20px;
+}
+
+.vlab-score-circle {
+  width: 95px;
+  height: 95px;
+  border-radius: 50%;
+  border: 4px solid #10b981;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 20px rgba(16, 185, 129, 0.4);
+}
+
+.vlab-score-num {
+  font-size: 24px;
+  font-weight: 900;
+  color: #ffffff;
+}
+
+.vlab-score-label {
+  font-size: 9px;
+  color: #a7f3d0;
+  text-transform: uppercase;
+}
+
+.vlab-score-details {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.vlab-grade-tag {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.vlab-grade-badge {
+  font-size: 13px;
+  font-weight: 900;
+  padding: 4px 12px;
+  border-radius: 8px;
+  color: white;
+}
+.grade-a1 { background: #059669; }
+.grade-a2 { background: #0284c7; }
+.grade-b1 { background: #d97706; }
+.grade-b2 { background: #e11d48; }
+.grade-c { background: #b91c1c; }
+
+.vlab-grade-text {
+  font-size: 12px;
+  color: #e2e8f0;
+}
+
+.vlab-values-comparison {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.vlab-val-card {
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  padding: 8px 12px;
+  display: flex;
+  flex-direction: column;
+}
+
+.vlab-val-label {
+  font-size: 10px;
+  color: #94a3b8;
+}
+
+.vlab-val-data {
+  font-size: 14px;
+  font-weight: 800;
+  color: #f8fafc;
+}
+.text-error {
+  color: #f87171;
+}
+
+.vlab-val-divider {
+  font-size: 12px;
+  color: #64748b;
+  font-weight: bold;
+}
+
+/* Mistakes List */
+.vlab-section-title {
+  font-size: 15px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+  color: #f8fafc;
+}
+.danger-title { color: #f87171; }
+.success-title { color: #4ade80; }
+
+.vlab-no-mistakes {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: rgba(16, 185, 129, 0.15);
+  border: 1px solid rgba(16, 185, 129, 0.4);
+  border-radius: 14px;
+  padding: 16px;
+  color: #d1fae5;
+  font-size: 13px;
+}
+
+.vlab-check-icon {
+  font-size: 32px;
+}
+
+.vlab-mistakes-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.vlab-mistake-card {
+  display: flex;
+  gap: 14px;
+  background: rgba(239, 68, 68, 0.08);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  border-radius: 16px;
+  padding: 16px;
+}
+
+.vlab-mistake-icon {
+  font-size: 20px;
+}
+
+.vlab-mistake-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.vlab-mistake-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.vlab-mistake-header h4 {
+  font-size: 14px;
+  font-weight: 700;
+  color: #fca5a5;
+}
+
+.vlab-mistake-category {
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 7px;
+  border-radius: 6px;
+  background: rgba(239, 68, 68, 0.2);
+  color: #fca5a5;
+}
+
+.vlab-mistake-desc {
+  font-size: 12px;
+  color: #e2e8f0;
+  line-height: 1.45;
+}
+
+.vlab-mistake-fix {
+  font-size: 12px;
+  color: #fed7aa;
+  background: rgba(245, 158, 11, 0.15);
+  border-radius: 8px;
+  padding: 6px 10px;
+  margin-top: 4px;
+}
+
+/* Good Practices Grid */
+.vlab-good-practices-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 8px;
+}
+
+.vlab-good-card {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(16, 185, 129, 0.08);
+  border: 1px solid rgba(16, 185, 129, 0.25);
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-size: 12px;
+  color: #d1fae5;
+}
+
+.good-check {
+  font-weight: 900;
+  color: #34d399;
+}
+
+/* Modal Footer */
+.vlab-modal-footer {
+  padding: 16px 24px;
+  background: rgba(255, 255, 255, 0.03);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+}
+

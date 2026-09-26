@@ -1,0 +1,20 @@
+package com.ailearn.dto;
+
+/** Response body returned by the AI Buddy endpoint. */
+public class ChatResponse {
+    private String message;
+
+    public ChatResponse() {}
+
+    public ChatResponse(String message) {
+        this.message = message;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+}
