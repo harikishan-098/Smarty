@@ -1,4 +1,4 @@
-const API_BASE = "http://localhost:8080";
+const API_BASE = "https://smarty-pe2a.onrender.com";
 
 export async function generateContent(prompt) {
   const response = await fetch(`${API_BASE}/api/generate`, {
