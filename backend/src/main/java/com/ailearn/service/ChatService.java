@@ -26,8 +26,8 @@ import java.util.concurrent.TimeUnit;
 @Service
 public class ChatService {
     private static final Logger log = LoggerFactory.getLogger(ChatService.class);
-    private static final String OPENAI_API_URL = "https://api.openai.com/v1/chat/completions";
-    private static final String MODEL = "gpt-5.6-luna";
+    private static final String OPENAI_API_URL ="https://generativelanguage.googleapis.com/v1beta/openai/chat/completions";
+    private static final String MODEL = "gemini-3.6-flash";
     private static final MediaType JSON = MediaType.get("application/json; charset=utf-8");
     private static final String SYSTEM_PROMPT = """
             You are AI Buddy, a friendly general-purpose assistant inside an educational website.
