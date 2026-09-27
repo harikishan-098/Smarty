@@ -1,4 +1,4 @@
-const API_BASE = "https://ai-learning-4ttb.onrender.com";
+const API_BASE = "https://smarty-pe2a.onrender.com";
 
 export async function sendChat(messages) {
   const response = await fetch(`${API_BASE}/api/chat`, {
