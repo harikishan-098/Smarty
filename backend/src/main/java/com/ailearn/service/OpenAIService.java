@@ -196,7 +196,7 @@ public class OpenAIService {
         var payload = objectMapper.createObjectNode();
         
         // Use GPT-4 Turbo for best results
-        payload.put("model", "gemini-3.8-flash");
+        payload.put("model", "gemini-3.6-flash");
         payload.put("reasoning_effort","low");
         payload.put("max_completion_tokens", 4000);
         
